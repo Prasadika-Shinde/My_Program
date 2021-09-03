@@ -1,0 +1,59 @@
+/* Design application for hotel. According to the management team of hotel they are
+giving
+discount on total bill amount of customer.
+If bill bill amount is less than 500 then there is no discount , if bill amount is less than
+1500
+and more than 500 they give 10% discount.
+And if the bill amount is more than 1500 then they give 15% discount.
+Our application should accept total bill amount and depends on the discount policy we
+have
+to return the amount after applying discount.*/
+
+#include<stdio.h>                   //header file for input output
+
+float CalculateBill(float fAmount)      //Function Defination
+{
+    float iResult=0.0f;
+
+    if(fAmount<500)
+    {
+        printf("No Discount\n");
+    }
+    else if((fAmount<1500) && (fAmount>=500))
+    {
+        printf("10% discount\n");
+
+        iResult=fAmount*10/100;
+        fAmount=fAmount-iResult;
+    }
+    else if(fAmount>=1500)
+    {
+        printf("15% discount\n");
+
+        iResult=fAmount*15/100;
+        fAmount=fAmount-iResult;
+    }
+
+    return fAmount;
+}
+int main()                      //Entry point function
+{
+    float  famount=0.0f;
+    float fTotalAmount=0.0f;
+
+    printf("\n\n\t\t\t*****Application for Hotel Management*****\n\n");
+    printf("\t\tEnter Any Amount:");
+    scanf("%f",&famount);
+
+    fTotalAmount=CalculateBill(famount);            //Function Call
+
+    printf("\t\tTotal Amount is: %f",fTotalAmount);
+
+    return 0;
+
+}
+
+
+
+
+
